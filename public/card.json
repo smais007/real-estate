@@ -1,0 +1,58 @@
+{
+    "estates": [
+      {
+        "id": 1,
+        "estate_title": "Luxurious Villa in Beverly Hills",
+        "segment_name": "Residential",
+        "description": "This stunning villa offers unparalleled luxury living in the heart of Beverly Hills.",
+        "price": "$5,000,000",
+        "status": "sale",
+        "area": "8000 sq ft",
+        "location": "Beverly Hills, California",
+        "facilities": ["Swimming Pool", "Home Theater", "Gym", "Spa", "Wine Cellar"],
+        "image": "https://i.ibb.co/cgd84My/h1.jpg",
+        "view_property_button": "https://example.com/view_property?id=1"
+      },
+      {
+        "id": 2,
+        "estate_title": "Modern Apartment in Manhattan",
+        "segment_name": "Residential",
+        "description": "Sleek and contemporary, this apartment offers the epitome of urban living in Manhattan.",
+        "price": "$3,500/month",
+        "status": "rent",
+        "area": "1200 sq ft",
+        "location": "Manhattan, New York",
+        "facilities": ["Gated Community", "Gym", "Concierge Service", "Rooftop Terrace"],
+        "image": "https://i.ibb.co/cgd84My/h1.jpg",
+        "view_property_button": "https://example.com/view_property?id=2"
+      },
+      {
+        "id": 3,
+        "estate_title": "Cozy Cottage in the English Countryside",
+        "segment_name": "Residential",
+        "description": "Escape to the tranquility of the English countryside in this charming cottage.",
+        "price": "$400,000",
+        "status": "sale",
+        "area": "1500 sq ft",
+        "location": "Oxfordshire, England",
+        "facilities": ["Garden", "Fireplace", "Home Office"],
+        "image": "https://i.ibb.co/cgd84My/h1.jpg",
+        "view_property_button": "https://example.com/view_property?id=3"
+      },
+      {
+        "id": 4,
+        "estate_title": "Luxury Villa in Rego Park",
+        "segment_name": "Residential",
+        "description": "Experience luxury living at its finest in this elegant villa located in Rego Park.",
+        "price": "$82,000 / mo",
+        "status": "rent",
+        "area": "1200 sqft",
+        "location": "New Jersey City, CA, USA",
+        "bedrooms": 4,
+        "bathrooms": 5,
+        "facilities": ["Swimming Pool", "Garden", "Home Office"],
+        "image": "https://i.ibb.co/cgd84My/h1.jpg",
+        "view_property_button": "https://example.com/view_property?id=4"
+      }
+    ]
+  }
