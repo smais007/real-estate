@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import UserAvarta from "../UserProfile/UserAvarta";
 
 const navigation = [
-  { name: "Product", href: "#" },
+  { name: "Details", href: "/d" },
   { name: "Features", href: "#" },
   { name: "Marketplace", href: "#" },
   { name: "Company", href: "#" },
@@ -57,7 +58,9 @@ export default function Navbar() {
             Log in <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
+        <div></div>
       </nav>
+      <UserAvarta></UserAvarta>
       <Dialog
         as="div"
         className="lg:hidden"

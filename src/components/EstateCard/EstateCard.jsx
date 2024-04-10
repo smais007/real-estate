@@ -1,11 +1,15 @@
-import { useState } from "react";
-import data from "../../../public/card.json";
+import { useState, useContext } from "react";
 import { BiBed, BiArea, BiBath } from "react-icons/bi";
+import { EstateCardContext } from "../../contexts/EstateCardProvider";
+
 export default function EstateCard() {
   const [statusFilter, setStatusFilter] = useState("");
+
   const handleFilter = (status) => {
     setStatusFilter(status);
   };
+
+  const estateData = useContext(EstateCardContext);
 
   return (
     <div className="bg-white">
@@ -37,7 +41,7 @@ export default function EstateCard() {
         </div>
 
         <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
-          {data.estates
+          {estateData
             .filter((estate) => !statusFilter || estate.status === statusFilter)
             .map((estate) => (
               <div
@@ -57,7 +61,7 @@ export default function EstateCard() {
                       {estate.estate_title}
                     </a>
                   </h3>
-                  <p className="text-sm text-gray-500">{estate.location}</p>
+                  <p className="text-sm text-gray-500">{estate.location.state}</p>
                   <div className="flex flex-1 flex-col justify-end">
                     <p className="text-base font-medium text-gray-900">
                       {estate.price}

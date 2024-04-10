@@ -4,6 +4,7 @@ import MainLayout from "../layout/MainLayout";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import Login from "../pages/LoginPage/Login";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
+import Details from "../components/EstateDetails/Details";
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/d",
+        element: <Details></Details>,
       },
     ],
   },

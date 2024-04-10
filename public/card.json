@@ -2,16 +2,24 @@
     "estates": [
       {
         "id": 1,
+        "property_id" : "RT40",
         "estate_title": "Luxurious Villa in Beverly Hills",
         "segment_name": "Residential",
-        "description": "This stunning villa offers unparalleled luxury living in the heart of Beverly Hills.",
+        "description": "This 3-bed with a loft, 2-bath home in the gated community of The Hideout has it all. From the open floor plan to the abundance of light from the windows, this home is perfect for entertaining. The living room and dining room have vaulted ceilings and a beautiful fireplace. You will love spending time on the deck taking in the beautiful views. In the kitchen, you'll find stainless steel appliances and a tile backsplash, as well as a breakfast bar.",
         "price": "$5,000,000",
         "status": "sale",
-        "area": "8000 sq ft",
-        "location": "Beverly Hills, California",
+        "area": "1200 sq ft",
+        "location": {
+            "street": "10425 Tabor St",
+            "city" : "Los Angeles",
+            "state": "California"
+        },
         "facilities": ["Swimming Pool", "Home Theater", "Gym", "Spa", "Wine Cellar"],
         "image": "https://i.ibb.co/cgd84My/h1.jpg",
-        "view_property_button": "https://example.com/view_property?id=1"
+        "view_property_button": "https://example.com/view_property?id=1",
+        "build_year" : "2019",
+        "garage" : "2",
+        "type": "Private Villa"
       },
       {
         "id": 2,
