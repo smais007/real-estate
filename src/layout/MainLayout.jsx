@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
-import UserAvarta from "../components/UserProfile/UserAvarta";
+// import UserAvarta from "../components/UserProfile/UserAvarta";
 // import Home from "../pages/Home/Home";
 
 const MainLayout = () => {
@@ -9,7 +9,7 @@ const MainLayout = () => {
     <div>
       <Navbar></Navbar>
       {/* <Home></Home> */}
-      <UserAvarta></UserAvarta>
+      {/* <UserAvarta></UserAvarta> */}
       <Outlet></Outlet>
       <Footer></Footer>
     </div>

@@ -1,0 +1,32 @@
+[
+    {
+      "id": 1,
+      "title": "Sunset on the Beach",
+      "image": "https://i.ibb.co/dJwjGch/7.jpg",
+      "description": "Enjoy the serene beauty of the sun setting over the ocean waves."
+    },
+    {
+      "id": 2,
+      "title": "Mountain Peak",
+      "image": "https://i.ibb.co/9WMscnm/8.jpg",
+      "description": "Experience the breathtaking view from the top of the world."
+    },
+    {
+      "id": 3,
+      "title": "City Skyline",
+      "image": "https://i.ibb.co/9nMD982/9.jpg",
+      "description": "Marvel at the glittering lights of the urban landscape against the night sky."
+    },
+    {
+      "id": 4,
+      "title": "Majestic Forest",
+      "image": "https://i.ibb.co/tXZDCMZ/10.jpg",
+      "description": "Lose yourself in the tranquility of the ancient trees and lush greenery."
+    },
+    {
+      "id": 5,
+      "title": "Waterfall Wonderland",
+      "image": "https://i.ibb.co/D7C8x81/1.jpg",
+      "description": "Be enchanted by the cascading waters amidst a paradise of flora and fauna."
+    }
+  ]

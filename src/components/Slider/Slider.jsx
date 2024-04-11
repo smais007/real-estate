@@ -1,55 +1,46 @@
-// import React, { useRef, useState } from "react";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+// import Swiper core and required modules
+import { Navigation, Autoplay } from "swiper/modules";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+// import { slides } from "../../../public/slides.json";
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/autoplay";
+import { useEffect, useState } from "react";
 
-import "./slider.css";
+const Slider = () => {
+  const [slides, setSlides] = useState([]);
+  useEffect(() => {
+    fetch("/public/slides.json")
+      .then((res) => res.json())
+      .then((data) => setSlides(data));
+  }, []);
 
-// import required modules
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
-export default function Slider() {
   return (
-    <>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
+        // install Swiper modules
+        modules={[Navigation, Autoplay]}
+        spaceBetween={50}
+        slidesPerView={1}
+        navigation
+        autoplay={true}
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log("slide change")}
       >
-        <SwiperSlide>
-          <img className="w-screen" src="/src/assets/images/h1.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img className="w-full" src="/src/assets/images/h1.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img className="w-screen" src="/src/assets/images/h1.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img className="w-screen" src="/src/assets/images/h1.jpg" alt="" />
-        </SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
+        {slides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <img className=" rounded-3xl" src={slide.image} alt={slide.title} />
+          </SwiperSlide>
+        ))}
       </Swiper>
-    </>
+    </div>
   );
-}
+};
+
+export default Slider;

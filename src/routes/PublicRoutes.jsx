@@ -5,6 +5,7 @@ import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import Login from "../pages/LoginPage/Login";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import Details from "../components/EstateDetails/Details";
+import ContactPage from "../pages/ContactPage/ContactPage";
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
       {
         path: "/d",
         element: <Details></Details>,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage></ContactPage>,
       },
     ],
   },
