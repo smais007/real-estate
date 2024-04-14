@@ -1,21 +1,20 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-// import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function UserAvarta() {
+export default function UserAvartar() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button>
-          {/* <img
+          <img
             className="inline-block h-10 w-10 rounded-full"
             src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
             alt=""
-          /> */}
+          />
         </Menu.Button>
       </div>
 
@@ -33,43 +32,31 @@ export default function UserAvarta() {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  href="#"
+                  href="/view-profile"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                     "block px-4 py-2 text-sm"
                   )}
                 >
-                  Account settings
+                  View Profile
                 </a>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
                 <a
-                  href="#"
+                  href="/update-profile"
                   className={classNames(
                     active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                     "block px-4 py-2 text-sm"
                   )}
                 >
-                  Support
+                  Update Profile
                 </a>
               )}
             </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="#"
-                  className={classNames(
-                    active ? "bg-gray-100 text-gray-900" : "text-gray-700",
-                    "block px-4 py-2 text-sm"
-                  )}
-                >
-                  License
-                </a>
-              )}
-            </Menu.Item>
-            <form method="POST" action="#">
+
+            {/* <form method="POST" action="#">
               <Menu.Item>
                 {({ active }) => (
                   <button
@@ -83,7 +70,7 @@ export default function UserAvarta() {
                   </button>
                 )}
               </Menu.Item>
-            </form>
+            </form> */}
           </div>
         </Menu.Items>
       </Transition>

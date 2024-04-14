@@ -1,28 +1,31 @@
-/*
-  This example requires some changes to your config:
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
+import { toast } from "sonner";
 
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 export default function RegisterPage() {
+  const { createUser } = useContext(AuthContext);
+
+  const handeRegister = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
+
+    createUser(email, password)
+      .then((result) => {
+        console.log(result);
+        toast.success("Your account created succesfully");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Something went wrong! Try again");
+      });
+
+    console.log(email, password);
+  };
+
   return (
     <>
-      {/*
-          This example requires updating your template:
-
-          ```
-          <html class="h-full bg-gray-50">
-          <body class="h-full">
-          ```
-        */}
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
@@ -37,7 +40,12 @@ export default function RegisterPage() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
-            <form className="space-y-6" action="#" method="POST">
+            <form
+              onSubmit={handeRegister}
+              className="space-y-6"
+              action="#"
+              method="POST"
+            >
               <div>
                 <label
                   htmlFor="email"

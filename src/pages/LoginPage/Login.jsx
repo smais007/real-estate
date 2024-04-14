@@ -1,4 +1,32 @@
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
+import { toast } from "sonner";
+import { useLocation, useNavigate } from "react-router-dom";
+
 export default function Login() {
+  const { signIn } = useContext(AuthContext);
+
+  const location = useLocation();
+  console.log(location);
+  const navigate = useNavigate();
+
+  const handeLogin = (e) => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const email = form.get("email");
+    const password = form.get("password");
+
+    signIn(email, password)
+      .then((result) => {
+        console.log(result);
+        navigate(location?.state ? location.state : "/");
+        toast.success("Login successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error("Email or password in incorrect");
+      });
+  };
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -14,7 +42,12 @@ export default function Login() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
+          <form
+            onSubmit={handeLogin}
+            className="space-y-6"
+            action="#"
+            method="POST"
+          >
             <div>
               <label
                 htmlFor="email"

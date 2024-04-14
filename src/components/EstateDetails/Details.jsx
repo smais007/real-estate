@@ -1,38 +1,57 @@
+/* eslint-disable react/prop-types */
+import { useContext } from "react";
 import Address from "./Address";
 import Description from "./Description";
 import Features from "./Features";
 import OverView from "./OverView";
 import ScheduleTour from "./ScheduleTour";
+import { EstateCardContext } from "../../contexts/EstateCardProvider";
+import { useParams } from "react-router-dom";
 
 const Details = () => {
+  const { id } = useParams();
+  const {estates} = useContext(EstateCardContext);
+  const selectedEstate = estates.find((estate) => estate.id === id);
+
+  if (!selectedEstate) {
+    return <div>Estate not found</div>;
+  }
   return (
     <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
-      <div className="flex justify-between ">
-        <div>
-          <div>
-            <h1 className="text-3xl">Equestrian Family Home</h1>
-          </div>
-          <div className="flex  flex-col md:flex-row">
-            <div>
-              <p>New York City, CA, USA</p>
-            </div>
-            <div className="flex gap-3">
-              <p>for seal</p>
-              <p>6 year ago</p>
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-between">
-          <div className="text-right">
-            <h1 className="text-2xl">Rent Price $</h1>
-            <p>$11.67/sq ft</p>
-          </div>
-        </div>
-      </div>
       <div>
-        <img className="h-1/2" src="/src/assets/images/h1.jpg" alt="" />
+        <div className="flex justify-between ">
+          <div>
+            <div>
+              <h1 className="text-3xl font-medium">
+                {selectedEstate.estate_title}
+              </h1>
+            </div>
+            <div className="flex  gap-3 flex-col md:flex-row mb-4">
+              <div>
+                <p>{selectedEstate.location}</p>
+              </div>
+              <div className="flex gap-3">
+                <p>{selectedEstate.status}</p>
+                <p>{selectedEstate.year}</p>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-between">
+            <div className="text-right">
+              <h1 className="text-2xl">Rent Price ${selectedEstate.price}</h1>
+              <p>${selectedEstate.price_per_sqft}/sq ft</p>
+            </div>
+          </div>
+        </div>
+        <div className="mb-10">
+          <img
+            className="h-1/2 rounded-xl "
+            src={selectedEstate.image}
+            alt=""
+          />
+        </div>
       </div>
-      <div className="flex flex-col md:flex-row border gap-5">
+      <div className="flex flex-col md:flex-row  gap-5">
         <div className="w-full md:w-2/3">
           <OverView></OverView>
           <Description></Description>

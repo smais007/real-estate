@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { AuthContext } from "../../contexts/AuthProvider";
+import { toast } from "sonner";
+import UserAvartar from "../UserProfile/UserAvarta";
 
 const navigation = [
-  { name: "Details", href: "/d" },
+  { name: "Home", href: "/" },
+  { name: "Details", href: "/properties" },
   { name: "Features", href: "#" },
   { name: "Marketplace", href: "#" },
   { name: "Contact", href: "/contact" },
@@ -11,6 +15,16 @@ const navigation = [
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    logOut()
+      .then((result) => {
+        console.log(result);
+        toast.success("Logout Successfully");
+      })
+      .catch();
+  };
 
   return (
     <header className="bg-white">
@@ -21,11 +35,7 @@ export default function Example() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
-            />
+            <img className="h-8 w-auto" src="/public/pc_logo.svg" alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -49,13 +59,33 @@ export default function Example() {
             </a>
           ))}
         </div>
+
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a
-            href="/login"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          <div>
+            {user ? (
+              <>
+                <div className="flex items-center gap-4">
+                  <UserAvartar></UserAvartar>
+                  <a
+                    onClick={handleSignOut}
+                    href="/login"
+                    className="text-sm font-semibold leading-6 text-gray-900"
+                  >
+                    Log Out <span aria-hidden="true">&rarr;</span>
+                  </a>
+                </div>
+              </>
+            ) : (
+              <>
+                <a
+                  href="/login"
+                  className="text-sm font-semibold leading-6 text-gray-900"
+                >
+                  Log in <span aria-hidden="true">&rarr;</span>
+                </a>
+              </>
+            )}
+          </div>
         </div>
       </nav>
       <Dialog
@@ -98,12 +128,22 @@ export default function Example() {
                 ))}
               </div>
               <div className="py-6">
-                <a
-                  href="/login"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
+                {user ? (
+                  <a
+                    onClick={handleSignOut}
+                    href="/login"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    Log Out <span aria-hidden="true">&rarr;</span>
+                  </a>
+                ) : (
+                  <a
+                    href="/login"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  >
+                    Log in <span aria-hidden="true">&rarr;</span>
+                  </a>
+                )}
               </div>
             </div>
           </div>

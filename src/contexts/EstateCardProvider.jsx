@@ -5,6 +5,8 @@ export const EstateCardContext = createContext();
 
 export const EstateCardProvider = ({ children }) => {
   const [estateData, setEstateData] = useState([]);
+  // eslint-disable-next-line no-unused-vars
+  const [selectedEstateId, setSelectedEstateId] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,8 +20,13 @@ export const EstateCardProvider = ({ children }) => {
 
     fetchData();
   }, []);
+
+  const selectEstate = (id) => {
+    setSelectedEstateId(id);
+  };
+
   return (
-    <EstateCardContext.Provider value={estateData}>
+    <EstateCardContext.Provider value={{ estates: estateData, selectEstate, selectedEstateId }}>
       {children}
     </EstateCardContext.Provider>
   );
