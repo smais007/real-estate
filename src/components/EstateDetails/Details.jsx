@@ -1,52 +1,51 @@
 /* eslint-disable react/prop-types */
-import { useContext } from "react";
+
 import Address from "./Address";
 import Description from "./Description";
 import Features from "./Features";
 import OverView from "./OverView";
 import ScheduleTour from "./ScheduleTour";
-import { EstateCardContext } from "../../contexts/EstateCardProvider";
-import { useParams } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 
 const Details = () => {
+  const estatesData = useLoaderData();
   const { id } = useParams();
-  const {estates} = useContext(EstateCardContext);
-  const selectedEstate = estates.find((estate) => estate.id === id);
 
-  if (!selectedEstate) {
-    return <div>Estate not found</div>;
-  }
+  const estates = estatesData.estates;
+
+  const estate = estates.find((estate) => estate.id === parseInt(id));
+
   return (
     <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div>
         <div className="flex justify-between ">
           <div>
             <div>
-              <h1 className="text-3xl font-medium">
-                {selectedEstate.estate_title}
-              </h1>
+              <h1 className="md:text-3xl font-medium">{estate.estate_title}</h1>
             </div>
-            <div className="flex  gap-3 flex-col md:flex-row mb-4">
+            <div className="flex  gap-3 flex-col md:flex-row mt-2 mb-4">
               <div>
-                <p>{selectedEstate.location}</p>
+                <p className="font-medium">{estate.location.city}</p>
               </div>
               <div className="flex gap-3">
-                <p>{selectedEstate.status}</p>
-                <p>{selectedEstate.year}</p>
+                <p>
+                  Status: For{" "}
+                  <span className="font-medium italic">{estate.status}</span>
+                </p>
               </div>
             </div>
           </div>
           <div className="flex justify-between">
             <div className="text-right">
-              <h1 className="text-2xl">Rent Price ${selectedEstate.price}</h1>
-              <p>${selectedEstate.price_per_sqft}/sq ft</p>
+              <h1 className="md:text-2xl"> Price {estate.price}</h1>
+              <p className="text-sm md:text-base">${estate.price_per_sqft} / sq ft</p>
             </div>
           </div>
         </div>
         <div className="mb-10">
           <img
             className="h-1/2 rounded-xl "
-            src={selectedEstate.image}
+            src="/src/assets/images/h1.jpg"
             alt=""
           />
         </div>

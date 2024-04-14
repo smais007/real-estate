@@ -1,19 +1,15 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { BiBed, BiArea, BiBath } from "react-icons/bi";
-import { EstateCardContext } from "../../contexts/EstateCardProvider";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 export default function EstateCard() {
-  const estateData = useContext(EstateCardContext);
   const [statusFilter, setStatusFilter] = useState("");
-
   const handleFilter = (status) => {
     setStatusFilter(status);
   };
 
-  const [selectedEstateId, setSelectedEstateId] = useState(null);
-  // console.log(selectedEstate);
-  
+  const estates = useLoaderData();
+  console.log(estates);
 
   return (
     <>
@@ -46,7 +42,7 @@ export default function EstateCard() {
           </div>
 
           <div className="grid grid-cols-1 gap-y-4 sm:grid-cols-2 sm:gap-x-6 sm:gap-y-10 lg:grid-cols-3 lg:gap-x-8">
-            {estateData
+            {estates.estates
               .filter(
                 (estate) => !statusFilter || estate.status === statusFilter
               )
@@ -99,14 +95,8 @@ export default function EstateCard() {
                         )}
                       </div>
                     </div>
-                    <button onClick={() => setSelectedEstateId(estate.id)}>
-                      <Link
-                        to={`/properties/${estate.id}`}
-
-                      >
-                        {" "}
-                        view{" "}
-                      </Link>
+                    <button>
+                      <Link to={`/properties/${estate.id}`}> view </Link>
                     </button>
                   </div>
                 </div>

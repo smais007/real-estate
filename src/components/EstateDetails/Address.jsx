@@ -1,9 +1,16 @@
 /* eslint-disable react/prop-types */
 import GoogleMapReact from "google-map-react";
 import { googleAPIKey } from "../../services/googleAPIKey";
+import { useLoaderData, useParams } from "react-router-dom";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const Address = () => {
+
+  const estatesData = useLoaderData();
+  const { id } = useParams();
+  const estates = estatesData.estates;
+  const estate = estates.find((estate) => estate.id === parseInt(id));
+
   const defaultProps = {
     center: {
       lat: 10.99835602,
@@ -13,13 +20,10 @@ const Address = () => {
   };
 
   return (
-    <div className="  mt-10 ">
-      <div className="my-5">
-        <h1 className="mb-4 text-xl font-medium">Property Description</h1>
-      </div>
+    <div className="mt-10 border rounded-xl p-4">
       <div>
         <h1 className="mb-4 text-xl font-medium">Address</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2  justify-between   gap-36 ">
+        <div className="grid grid-cols-1 md:grid-cols-2  justify-between   md:gap-36 mb-4">
           <div className=" flex justify-between">
             <div>
               <p className="font-medium leading-[2rem]">Street</p>
@@ -27,9 +31,9 @@ const Address = () => {
               <p className="font-medium leading-[2rem]">State</p>
             </div>
             <div className="text-right">
-              <p className="leading-[2rem]">LTR40</p>
-              <p className="leading-[2rem]">$494949</p>
-              <p className="leading-[2rem]">1500 Sq Ft</p>
+              <p className="leading-[2rem]">{estate.location.street}</p>
+              <p className="leading-[2rem]">{estate.location.city}</p>
+              <p className="leading-[2rem]">{estate.location.state}</p>
             </div>
           </div>
           <div className=" flex  justify-between">
@@ -38,13 +42,15 @@ const Address = () => {
               <p className="font-medium leading-[2rem]"> Zip Code</p>
             </div>
             <div className="text-right">
-              <p className="leading-[2rem]">2</p>
-              <p className="leading-[2rem]">200 SqFt</p>
+              <p className="leading-[2rem]">{estate.location.country}</p>
+              <p className="leading-[2rem]">{estate.location.ZIP}</p>
             </div>
           </div>
         </div>
+
+        {/* Goople maps */}
         <div>
-          <div style={{ height: "400px", width: "100%" }}>
+          <div style={{ height: "400px", width: "100%", borderRadius:"1rem" }}>
             <GoogleMapReact
               bootstrapURLKeys={{ key: googleAPIKey }}
               defaultCenter={defaultProps.center}

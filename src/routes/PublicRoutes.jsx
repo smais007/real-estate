@@ -19,6 +19,7 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("/card.json"),
       },
       {
         path: "/properties/:id",
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
             <Details></Details>
           </PrivateRoutes>
         ),
+        loader: () => fetch("/card.json"),
       },
       {
         path: "/view-profile",
