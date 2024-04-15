@@ -33,9 +33,9 @@ export default function Example() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <a href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img className="h-8 w-auto" src="/public/pc_logo.svg" alt="" />
+            <img className="h-10 w-auto" src="/public/pc_logo.svg" alt="" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -66,13 +66,6 @@ export default function Example() {
               <>
                 <div className="flex items-center gap-4">
                   <UserAvartar></UserAvartar>
-                  <a
-                    onClick={handleSignOut}
-                    href="/login"
-                    className="text-sm font-semibold leading-6 text-gray-900"
-                  >
-                    Log Out <span aria-hidden="true">&rarr;</span>
-                  </a>
                 </div>
               </>
             ) : (

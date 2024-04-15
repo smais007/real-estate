@@ -17,8 +17,12 @@ import {
   EnvelopeIcon,
   PhoneIcon,
 } from "@heroicons/react/24/outline";
+import { useEffect } from "react";
 
 export default function ContactPage() {
+  useEffect(() => {
+    document.title = "Paradise Cove | Contact";
+  }, []);
   return (
     <div className="relative isolate bg-white">
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">

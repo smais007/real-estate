@@ -1,6 +1,10 @@
 import { PaperClipIcon } from "@heroicons/react/20/solid";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const ViewProfile = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <div>
       <div className="mx-auto max-w-3xl px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
@@ -9,7 +13,10 @@ const ViewProfile = () => {
             <div className="relative">
               <img
                 className="h-16 w-16 rounded-full"
-                src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+                src={
+                  user?.photoURL ||
+                  "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80"
+                }
                 alt=""
               />
               <span
@@ -19,7 +26,9 @@ const ViewProfile = () => {
             </div>
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Ricardo Cooper</h1>
+            <h1 className="text-2xl font-bold text-gray-900">
+              {user.displayName}
+            </h1>
             <p className="text-sm font-medium text-gray-500">
               Applied for{" "}
               <a href="#" className="text-gray-900">
@@ -33,11 +42,11 @@ const ViewProfile = () => {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8 mt-3 md:mt-5">
         <div className="px-4 sm:px-0">
           <h3 className="text-base font-semibold leading-7 text-gray-900">
-            Applicant Information
+            Personal Information
           </h3>
-          <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
+          {/* <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
             Personal details and application.
-          </p>
+          </p> */}
         </div>
         <div className="mt-6 border-t border-gray-100">
           <dl className="divide-y divide-gray-100">
@@ -46,31 +55,24 @@ const ViewProfile = () => {
                 Full name
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                Margot Foster
+                {user.displayName}
               </dd>
             </div>
-            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-              <dt className="text-sm font-medium leading-6 text-gray-900">
-                Application for
-              </dt>
-              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                Backend Developer
-              </dd>
-            </div>
+
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-900">
                 Email address
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                margotfoster@example.com
+                {user.email}
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
               <dt className="text-sm font-medium leading-6 text-gray-900">
-                Salary expectation
+                Phone Number
               </dt>
               <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-                $120,000
+                {user?.phoneNumber || "01X - XXXXXXXX"}
               </dd>
             </div>
             <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -102,43 +104,17 @@ const ViewProfile = () => {
                       />
                       <div className="ml-4 flex min-w-0 flex-1 gap-2">
                         <span className="truncate font-medium">
-                          resume_back_end_developer.pdf
-                        </span>
-                        <span className="flex-shrink-0 text-gray-400">
-                          2.4mb
+                          {user.photoURL}
                         </span>
                       </div>
                     </div>
                     <div className="ml-4 flex-shrink-0">
                       <a
-                        href="#"
+                        href={user.photoURL}
+                        target="_blank"
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
-                        Download
-                      </a>
-                    </div>
-                  </li>
-                  <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
-                    <div className="flex w-0 flex-1 items-center">
-                      <PaperClipIcon
-                        className="h-5 w-5 flex-shrink-0 text-gray-400"
-                        aria-hidden="true"
-                      />
-                      <div className="ml-4 flex min-w-0 flex-1 gap-2">
-                        <span className="truncate font-medium">
-                          coverletter_back_end_developer.pdf
-                        </span>
-                        <span className="flex-shrink-0 text-gray-400">
-                          4.5mb
-                        </span>
-                      </div>
-                    </div>
-                    <div className="ml-4 flex-shrink-0">
-                      <a
-                        href="#"
-                        className="font-medium text-indigo-600 hover:text-indigo-500"
-                      >
-                        Download
+                        View
                       </a>
                     </div>
                   </li>

@@ -1,28 +1,47 @@
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "sonner";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 export default function RegisterPage() {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  const handeRegister = (e) => {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const email = form.get("email");
-    const password = form.get("password");
+  // React Hook form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    const { email, password, fullName, image } = data;
 
     createUser(email, password)
-      .then((result) => {
-        console.log(result);
-        toast.success("Your account created succesfully");
+      .then(() => {
+        updateUserProfile(fullName, image).then(() => {
+          toast.success("Your account created succesfully");
+          navigate(location?.state ? location.state : "/");
+        });
       })
       .catch((error) => {
         console.log(error);
         toast.error("Something went wrong! Try again");
       });
-
-    console.log(email, password);
   };
+
+  // const handeRegister = (e) => {
+  //   e.preventDefault();
+  //   const form = new FormData(e.currentTarget);
+  //   const displayName = form.get("displayName");
+  //   const photoURL = form.get("photoURL");
+  //   const email = form.get("email");
+  //   const password = form.get("password");
+  //   console.log(displayName, photoURL, email, password);
+  // };
 
   return (
     <>
@@ -41,7 +60,7 @@ export default function RegisterPage() {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
             <form
-              onSubmit={handeRegister}
+              onSubmit={handleSubmit(onSubmit)}
               className="space-y-6"
               action="#"
               method="POST"
@@ -51,15 +70,63 @@ export default function RegisterPage() {
                   htmlFor="email"
                   className="block text-sm font-medium leading-6 text-gray-900"
                 >
+                  Name
+                </label>
+                <div className="mt-2">
+                  <input
+                    {...register("fullName", { required: true })}
+                    id="fullName"
+                    name="fullName"
+                    type="text"
+                    autoComplete="text"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                  {errors.fullName && (
+                    <span className="text-sm text-red-400 italic">
+                      This field is required
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
                   Email address
                 </label>
                 <div className="mt-2">
                   <input
+                    {...register("email", { required: true })}
                     id="email"
                     name="email"
                     type="email"
                     autoComplete="email"
-                    required
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                  {errors.email && (
+                    <span className="text-sm text-red-400 italic">
+                      This field is required
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium leading-6 text-gray-900"
+                >
+                  Photo URL
+                </label>
+                <div className="mt-2">
+                  <input
+                    {...register("image")}
+                    id="image"
+                    name="image"
+                    type="text"
+                    autoComplete="text"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -74,13 +141,18 @@ export default function RegisterPage() {
                 </label>
                 <div className="mt-2">
                   <input
+                    {...register("password", { required: true })}
                     id="password"
                     name="password"
                     type="password"
                     autoComplete="current-password"
-                    required
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
+                  {errors.password && (
+                    <span className="text-sm text-red-400 italic">
+                      This field is required
+                    </span>
+                  )}
                 </div>
               </div>
 

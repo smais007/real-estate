@@ -15,26 +15,28 @@ export default function EstateCard() {
     <>
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-          <h2 className="">Discover Popular Properties</h2>
+          <h2 className="text-lg md:text-3xl font-bold">
+            Discover Popular Properties
+          </h2>
           <div className="flex justify-between">
             <div>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Possimus, ipsum?
+              <p className="pt-4 mb-5">
+                Escape to the idyllic countryside of Provence in this luxurious
+                villa surrounded by the world
               </p>
             </div>
-            <div className="inline-flex gap-2">
+            <div className="">
               <button
                 onClick={() => handleFilter("rent")}
                 type="button"
-                className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                className="mr-4 rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
               >
                 Rent
               </button>
               <button
                 onClick={() => handleFilter("sale")}
                 type="button"
-                className="rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
               >
                 Sale
               </button>
@@ -51,18 +53,19 @@ export default function EstateCard() {
                   key={estate.id}
                   className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
                 >
-                  <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96">
+                  <div className="aspect-h-4 aspect-w-3 bg-gray-200 sm:aspect-none group-hover:opacity-75 sm:h-96 relative">
                     <img
                       src={estate.image}
                       className="h-full w-full object-cover object-center sm:h-full sm:w-full"
                     />
+                    <p className="absolute right-2 bottom-2 bg-indigo-600 text-white font-medium text-sm px-2 rounded-lg">{estate.status}</p>
                   </div>
                   <div className="flex flex-1 flex-col space-y-2 p-4">
                     <h3 className="text-sm font-medium text-gray-900">
                       {estate.estate_title}
                     </h3>
                     <p className="text-sm text-gray-500">
-                      {estate.location.state}
+                    {estate.location.state ? estate.location.state : estate.location.country}
                     </p>
                     <div className="flex flex-1 flex-col justify-end">
                       <p className="text-base font-medium text-gray-900">
@@ -95,8 +98,8 @@ export default function EstateCard() {
                         )}
                       </div>
                     </div>
-                    <button>
-                      <Link to={`/properties/${estate.id}`}> view </Link>
+                    <button className="bg-gray-800 py-1 rounded-lg text-white font-medium">
+                      <Link to={`/properties/${estate.id}`}> View Property </Link>
                     </button>
                   </div>
                 </div>
