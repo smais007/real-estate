@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "sonner";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { passwordValidation } from "../../utils/passwordValidation";
 
 export default function RegisterPage() {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile, googleLogin, githubLogin } =
+    useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -16,9 +18,20 @@ export default function RegisterPage() {
     formState: { errors },
   } = useForm();
 
+  useEffect(()=>{
+    document.title = 'Paradice Cave | Registration'
+  },[])
+
   const onSubmit = (data) => {
     console.log(data);
     const { email, password, fullName, image } = data;
+
+    if (!passwordValidation(password)) {
+      toast.error(
+        "Password must have at least one uppercase letter, one lowercase letter, and be at least 6 characters long"
+      );
+      return;
+    }
 
     createUser(email, password)
       .then(() => {
@@ -32,16 +45,6 @@ export default function RegisterPage() {
         toast.error("Something went wrong! Try again");
       });
   };
-
-  // const handeRegister = (e) => {
-  //   e.preventDefault();
-  //   const form = new FormData(e.currentTarget);
-  //   const displayName = form.get("displayName");
-  //   const photoURL = form.get("photoURL");
-  //   const email = form.get("email");
-  //   const password = form.get("password");
-  //   console.log(displayName, photoURL, email, password);
-  // };
 
   return (
     <>
@@ -200,7 +203,12 @@ export default function RegisterPage() {
 
               <div className="mt-6 grid grid-cols-2 gap-4">
                 <a
-                  href="#"
+                  onClick={() => {
+                    googleLogin(
+                      navigate(location?.state ? location.state : "/")
+                    );
+                    toast.success("Login success");
+                  }}
                   className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent"
                 >
                   <svg
@@ -231,7 +239,12 @@ export default function RegisterPage() {
                 </a>
 
                 <a
-                  href="#"
+                  onClick={() => {
+                    githubLogin(
+                      navigate(location?.state ? location.state : "/")
+                    );
+                    toast.success("Login success");
+                  }}
                   className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent"
                 >
                   <svg

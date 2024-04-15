@@ -8,19 +8,19 @@ const features = [
   {
     name: "Property Management.",
     description:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.",
+      "Effortlessly maintain your luxury properties with our comprehensive property management services, ensuring that every aspect is meticulously handled to preserve their allure and value.",
     icon: UserIcon,
   },
   {
     name: "Mortgage Services.",
     description:
-      "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.",
+      "Secure the home of your dreams with our tailored mortgage services, offering competitive rates and personalized guidance to make your luxury property ownership.",
     icon: KeyIcon,
   },
   {
     name: "Currency Services.",
     description:
-      "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.",
+      "Streamline your international real estate transactions with our currency services, facilitating seamless exchanges and ensuring optimal value for your luxury property investments across borders.",
     icon: CurrencyDollarIcon,
   },
 ];
@@ -31,7 +31,11 @@ export default function ChooseUs() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:ml-auto lg:pl-4 lg:pt-4">
-            <div className="lg:max-w-lg">
+            <div
+              data-aos="fade-left"
+              data-aos-duration="1000"
+              className="lg:max-w-lg"
+            >
               <h2 className="text-base font-semibold leading-7 text-indigo-600">
                 Deploy faster
               </h2>
@@ -60,6 +64,8 @@ export default function ChooseUs() {
           </div>
           <div className="flex items-start justify-end lg:order-first">
             <img
+              data-aos="fade-right"
+              data-aos-duration="1000"
               src="https://tailwindui.com/img/component-images/dark-project-app-screenshot.png"
               alt="Product screenshot"
               className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem]"

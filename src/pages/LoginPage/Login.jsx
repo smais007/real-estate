@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "sonner";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -8,6 +8,10 @@ export default function Login() {
 
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Paradice Cave | Login";
+  }, []);
 
   const handeLogin = (e) => {
     e.preventDefault();
@@ -177,7 +181,7 @@ export default function Login() {
 
                 <a
                   href=""
-                  onClick={()=> githubLogin()}
+                  onClick={() => githubLogin()}
                   className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent"
                 >
                   <svg

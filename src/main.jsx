@@ -6,6 +6,9 @@ import { router } from "./routes/PublicRoutes";
 import { EstateCardProvider } from "./contexts/EstateCardProvider";
 import AuthProvider from "./contexts/AuthProvider";
 import { Toaster } from "sonner";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

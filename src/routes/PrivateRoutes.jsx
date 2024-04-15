@@ -2,23 +2,16 @@
 import { useContext } from "react";
 import { AuthContext } from "../contexts/AuthProvider";
 import { Navigate, useLocation } from "react-router-dom";
-import { Oval } from 'react-loader-spinner'
+// import { Oval } from 'react-loader-spinner'
+import Spinner from "../components/Spinner/Spinner";
 
 const PrivateRoutes = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
-  const location = useLocation()
+  const location = useLocation();
 
-  if(loading){
-    return (<Oval
-        visible={true}
-        height="80"
-        width="80"
-        color="#4fa94d"
-        ariaLabel="oval-loading"
-        wrapperStyle={{}}
-        wrapperClass=""
-        />
- ) }
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
 
   if (user) {
     return children;

@@ -1,10 +1,16 @@
 import { PaperClipIcon } from "@heroicons/react/20/solid";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 const ViewProfile = () => {
   const { user } = useContext(AuthContext);
-  console.log(user);
+
+  const creationTime = user.metadata.creationTime;
+  const timePart = creationTime.split(" ").slice(0, 4).join(" ");
+
+  useEffect(()=>{
+    document.title = 'Paradice Cave | My Profile'
+  },[])
   return (
     <div>
       <div className="mx-auto max-w-3xl px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
@@ -30,11 +36,11 @@ const ViewProfile = () => {
               {user.displayName}
             </h1>
             <p className="text-sm font-medium text-gray-500">
-              Applied for{" "}
+              Joined{" "}
               <a href="#" className="text-gray-900">
-                Front End Developer
+                Paradise Cave
               </a>{" "}
-              on <time dateTime="2020-08-25">August 25, 2020</time>
+              on <time dateTime="2020-08-25">{timePart}</time>
             </p>
           </div>
         </div>
