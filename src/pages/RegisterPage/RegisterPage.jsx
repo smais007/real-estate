@@ -1,9 +1,10 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "sonner";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { passwordValidation } from "../../utils/passwordValidation";
+import { BiShow, BiHide } from "react-icons/bi";
 
 export default function RegisterPage() {
   const { createUser, updateUserProfile, googleLogin, githubLogin } =
@@ -18,9 +19,15 @@ export default function RegisterPage() {
     formState: { errors },
   } = useForm();
 
-  useEffect(()=>{
-    document.title = 'Paradice Cave | Registration'
-  },[])
+  useEffect(() => {
+    document.title = "Paradice Cave | Registration";
+  }, []);
+
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevState) => !prevState); 
+  };
 
   const onSubmit = (data) => {
     console.log(data);
@@ -142,15 +149,25 @@ export default function RegisterPage() {
                 >
                   Password
                 </label>
-                <div className="mt-2">
+                <div className="mt-2 relative">
                   <input
                     {...register("password", { required: true })}
                     id="password"
                     name="password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     autoComplete="current-password"
                     className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   />
+                  {/* Togole show and hide  */}
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
+                    <button
+                      onClick={togglePasswordVisibility}
+                      type="button"
+                      className="text-gray-400 focus:outline-none focus:text-indigo-500"
+                    >
+                      {showPassword ? <BiHide></BiHide> : <BiShow></BiShow>}
+                    </button>
+                  </div>
                   {errors.password && (
                     <span className="text-sm text-red-400 italic">
                       This field is required

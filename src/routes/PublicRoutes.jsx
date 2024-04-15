@@ -9,6 +9,8 @@ import ContactPage from "../pages/ContactPage/ContactPage";
 import PrivateRoutes from "./PrivateRoutes";
 import ViewProfile from "../components/UserProfile/ViewProfile";
 import UpdateProfile from "../components/UpdateProfile/UpdateProfile";
+import BlogPage from "../pages/BlogPage/BlogPage";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ export const router = createBrowserRouter([
             <UpdateProfile></UpdateProfile>
           </PrivateRoutes>
         ),
+      },
+      {
+        path: '/blog',
+        element:<BlogPage></BlogPage>
+      },
+      {
+        path: '/about',
+        element:<AboutUs></AboutUs>
       },
       {
         path: "/contact",

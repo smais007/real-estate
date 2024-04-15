@@ -1,7 +1,7 @@
 const ScheduleTour = () => {
   return (
     <div className="border p-2 rounded-xl   shadow-lg shadow-gray-100 ">
-      <h1 className="text-xl font-bold mb-8">Schedule a tour</h1>
+      <h1 className="text-xl font-bold mb-8">Schedule A Tour</h1>
       <div className="gap-6">
         <div className="mb-6 relative">
           <label
@@ -11,9 +11,9 @@ const ScheduleTour = () => {
             Time
           </label>
           <input
-            type="text"
+            type="date"
             name="name"
-            id="name"
+            id="time"
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             placeholder="Jane Smith"
           />
@@ -41,11 +41,11 @@ const ScheduleTour = () => {
             Phone
           </label>
           <input
-            type="text"
-            name="name"
-            id="name"
+            type="tel"
+            name="number"
+            id="number"
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            placeholder="Jane Smith"
+            placeholder="+880 1"
           />
         </div>
         <div className="mb-6 relative">
@@ -56,9 +56,9 @@ const ScheduleTour = () => {
             Email
           </label>
           <input
-            type="text"
-            name="name"
-            id="name"
+            type="email"
+            name="email"
+            id="email"
             className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             placeholder="Jane Smith"
           />

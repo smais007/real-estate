@@ -8,8 +8,8 @@ import UserAvartar from "../UserProfile/UserAvarta";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Details", href: "/properties" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
+  { name: "About", href: "/about" },
+  { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -49,15 +49,18 @@ export default function Example() {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              {item.name}
-            </a>
-          ))}
+          {navigation.map((item) =>
+            // Conditionally render the "Details" link based on user authentication
+            item.name === "Details" && !user ? null : (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                {item.name}
+              </a>
+            )
+          )}
         </div>
 
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">

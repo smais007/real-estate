@@ -35,6 +35,14 @@ const AuthProvider = ({ children }) => {
     });
   };
 
+  const editUserProfile = (editName, editImage, editNumber) => {
+    return updateProfile(auth.currentUser, {
+      displayName: editName,
+      photoURL: editImage,
+      phoneNumber: editNumber,
+    });
+  };
+
   const googleLogin = () => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
@@ -65,6 +73,8 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
+
+  console.log(user);
   const authInfo = {
     user,
     createUser,
@@ -74,6 +84,7 @@ const AuthProvider = ({ children }) => {
     googleLogin,
     githubLogin,
     updateUserProfile,
+    editUserProfile,
   };
 
   return (

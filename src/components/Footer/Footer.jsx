@@ -170,7 +170,7 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div data-aos="zoom-in-down" data-aos-duration='1000' className="mt-10 xl:mt-0">
+          <div className="mt-10 xl:mt-0">
             <h3 className="text-sm font-semibold leading-6 text-gray-900">
               Subscribe to our newsletter
             </h3>
