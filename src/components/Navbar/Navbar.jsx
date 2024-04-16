@@ -2,12 +2,13 @@ import { useContext, useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { AuthContext } from "../../contexts/AuthProvider";
-import { toast } from "sonner";
 import UserAvartar from "../UserProfile/UserAvarta";
+import MiniUserAvartar from "../UserProfile/MiniUserAvartar";
 
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Details", href: "/properties" },
+  { name: "Agents", href: "/agent" },
   { name: "About", href: "/about" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
@@ -15,16 +16,7 @@ const navigation = [
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user, logOut } = useContext(AuthContext);
-
-  const handleSignOut = () => {
-    logOut()
-      .then((result) => {
-        console.log(result);
-        toast.success("Logout Successfully");
-      })
-      .catch();
-  };
+  const { user } = useContext(AuthContext);
 
   return (
     <header className="bg-white">
@@ -50,8 +42,9 @@ export default function Example() {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) =>
-            // Conditionally render the "Details" link based on user authentication
-            item.name === "Details" && !user ? null : (
+            (item.name === "Details" ||
+            item.name === "Agents" ) &&
+            !user ? null : (
               <a
                 key={item.name}
                 href={item.href}
@@ -113,7 +106,18 @@ export default function Example() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                {navigation.map((item) => (
+                {navigation.map((item) =>
+                  item.name === "Details" && !user ? null : (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      {item.name}
+                    </a>
+                  )
+                )}
+                {/* {navigation.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
@@ -121,17 +125,38 @@ export default function Example() {
                   >
                     {item.name}
                   </a>
-                ))}
+                ))} */}
               </div>
               <div className="py-6">
-                {user ? (
+                {/* {user ? (
+                  <>
+                    <UserAvartar />
+                    <a
+                      onClick={handleSignOut}
+                      href="/login"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    >
+                      Log Out <span aria-hidden="true">&rarr;</span>
+                    </a>
+                  </>
+                ) : (
                   <a
-                    onClick={handleSignOut}
                     href="/login"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                   >
-                    Log Out <span aria-hidden="true">&rarr;</span>
+                    Log in <span aria-hidden="true">&rarr;</span>
                   </a>
+                )} */}
+                {user ? (
+                  <>
+                    <div className="flex gap-3 items-center">
+                      <MiniUserAvartar></MiniUserAvartar>
+                      <div>
+                        <p className="text-lg font-bold leading-0">Profile</p>
+                        <p className="text-sm leading-0">Manage Your Profile</p>
+                      </div>
+                    </div>
+                  </>
                 ) : (
                   <a
                     href="/login"

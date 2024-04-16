@@ -11,6 +11,7 @@ import ViewProfile from "../components/UserProfile/ViewProfile";
 import UpdateProfile from "../components/UpdateProfile/UpdateProfile";
 import BlogPage from "../pages/BlogPage/BlogPage";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import AgentPage from "../pages/AgentPage/AgentPage";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,15 @@ export const router = createBrowserRouter([
         loader: () => fetch("/card.json"),
       },
       {
+        path: "/agent",
+        element: (
+          <PrivateRoutes>
+            <AgentPage> </AgentPage>
+          </PrivateRoutes>
+        ),
+        loader: () => fetch("/card.json"),
+      },
+      {
         path: "/view-profile",
         element: (
           <PrivateRoutes>
@@ -49,12 +59,12 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: '/blog',
-        element:<BlogPage></BlogPage>
+        path: "/blog",
+        element: <BlogPage></BlogPage>,
       },
       {
-        path: '/about',
-        element:<AboutUs></AboutUs>
+        path: "/about",
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/contact",
