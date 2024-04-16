@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
 import { Swiper, SwiperSlide } from "swiper/react";
-import slideData from "../../../public/slides.json";
+import { useState, useEffect } from "react";
 
 import "swiper/css/bundle";
 import "./style.css";
@@ -14,6 +13,25 @@ import {
 import { Link } from "react-router-dom";
 
 function Slider() {
+  const [slideData, setSlideData] = useState([]);
+
+  useEffect(() => {
+    async function fetchSlides() {
+      try {
+        const response = await fetch("/slides.json");
+        if (!response.ok) {
+          throw new Error("Failed to fetch slides");
+        }
+        const data = await response.json();
+        setSlideData(data);
+      } catch (error) {
+        console.error("Error fetching slides:", error);
+      }
+    }
+
+    fetchSlides();
+  }, []);
+
   return (
     <div className="container_slider">
       <Swiper
