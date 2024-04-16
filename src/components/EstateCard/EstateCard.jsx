@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BiBed, BiArea, BiBath } from "react-icons/bi";
+import { BiArea } from "react-icons/bi";
 import { Link, useLoaderData } from "react-router-dom";
 
 export default function EstateCard() {
@@ -70,14 +70,25 @@ export default function EstateCard() {
                     </p>
                   </div>
                   <div className="flex flex-1 flex-col space-y-2 p-4">
-                    <h3 className="text-sm font-medium text-gray-900">
+                    <h3 className="text-base md:text-lg font-medium text-gray-900">
                       {estate.estate_title}
                     </h3>
-                    <p className="text-sm text-gray-500">
-                      {estate.location.state
-                        ? estate.location.state
-                        : estate.location.country}
-                    </p>
+                    <div className="flex gap-4">
+                      <p className="text-sm text-gray-500 bg-gray-100 px-2 rounded-md">
+                        {estate.location.state
+                          ? estate.location.state
+                          : estate.location.country}
+                      </p>
+                      <p className="text-sm text-gray-500 bg-gray-100 px-2 rounded-md">
+                        Property ID: {estate.property_id}
+                      </p>
+                      <p className="text-sm text-gray-500 bg-gray-100 px-2 rounded-md"> {estate.segment_name}</p>
+                    </div>
+                    <div>
+                      <p className="text-sm leading-tight text-gray-700">
+                        {estate.sub_title}
+                      </p>
+                    </div>
                     <div className="flex flex-1 flex-col justify-end">
                       <p className="text-base font-medium text-gray-900">
                         {estate.price}
@@ -90,23 +101,6 @@ export default function EstateCard() {
                             {estate.area}
                           </p>
                         </div>
-                        {estate.bedrooms && (
-                          <div className="flex gap-1">
-                            <BiBed />
-                            <p className="text-sm italic text-gray-500">
-                              {estate.bedrooms}
-                            </p>
-                          </div>
-                        )}
-
-                        {estate.bathrooms && (
-                          <div className="flex gap-1 items-center">
-                            <BiBath />
-                            <p className="text-sm italic text-gray-500">
-                              {estate.bathrooms}
-                            </p>
-                          </div>
-                        )}
                       </div>
                     </div>
                     <div className="flex justify-end">
