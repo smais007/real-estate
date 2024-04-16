@@ -31,6 +31,7 @@ export default function Login() {
       });
   };
 
+
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -143,7 +144,7 @@ export default function Login() {
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-4">
-                <a
+                <button
                   onClick={() => {
                     googleLogin(
                       navigate(location?.state ? location.state : "/")
@@ -177,11 +178,15 @@ export default function Login() {
                   <span className="text-sm font-semibold leading-6">
                     Google
                   </span>
-                </a>
+                </button>
 
                 <a
-                  href=""
-                  onClick={() => githubLogin()}
+                  onClick={() => {
+                    githubLogin(
+                      navigate(location?.state ? location.state : "/")
+                    );
+                    toast.success("Login success");
+                  }}
                   className="flex w-full items-center justify-center gap-3 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:ring-transparent"
                 >
                   <svg

@@ -1,4 +1,11 @@
-import { BiBath, BiBed, BiSolidCarGarage, BiCalendarEvent, BiExpand, BiHomeAlt2 } from "react-icons/bi";
+import {
+  BiBath,
+  BiBed,
+  BiSolidCarGarage,
+  BiCalendarEvent,
+  BiExpand,
+  BiHomeAlt2,
+} from "react-icons/bi";
 import { useLoaderData, useParams } from "react-router-dom";
 
 const OverView = () => {

@@ -26,7 +26,7 @@ export default function RegisterPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
-    setShowPassword((prevState) => !prevState); 
+    setShowPassword((prevState) => !prevState);
   };
 
   const onSubmit = (data) => {
@@ -219,7 +219,7 @@ export default function RegisterPage() {
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-4">
-                <a
+                <button
                   onClick={() => {
                     googleLogin(
                       navigate(location?.state ? location.state : "/")
@@ -253,9 +253,9 @@ export default function RegisterPage() {
                   <span className="text-sm font-semibold leading-6">
                     Google
                   </span>
-                </a>
+                </button>
 
-                <a
+                <button
                   onClick={() => {
                     githubLogin(
                       navigate(location?.state ? location.state : "/")
@@ -279,7 +279,7 @@ export default function RegisterPage() {
                   <span className="text-sm font-semibold leading-6">
                     GitHub
                   </span>
-                </a>
+                </button>
               </div>
             </div>
           </div>

@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
 import { Swiper, SwiperSlide } from "swiper/react";
+import slideData from "../../../public/slides.json";
 
 import "swiper/css/bundle";
-
 import "./style.css";
-
-import slideData from "../../../public/slides.json";
 
 import {
   Autoplay,
@@ -13,6 +11,7 @@ import {
   Navigation,
   Pagination,
 } from "swiper/modules";
+import { Link } from "react-router-dom";
 
 function Slider() {
   return (
@@ -43,11 +42,15 @@ function Slider() {
           <SwiperSlide key={slide.id}>
             <img src={slide.image_url} alt="slide_image" />
             <div className="slide-text">
-              <div className="">
-                <h1>{slide.title}</h1>
-                <p>{slide.subtitle}</p>
+              <div className="px-10 absolute bottom-2">
+                <h1 className="text-lg md:text-2xl font-bold pb-2">
+                  {slide.title}
+                </h1>
+                <p className="pb-2">{slide.subtitle}</p>
                 <a href={slide.url}>
-                  <button>{slide.button}</button>
+                  <button className="text-lg font-medium  my-2 px-3 py-1 rounded-xl bg-indigo-600">
+                    <Link to={`/properties/${slide.id}`}>{slide.button}</Link>
+                  </button>
                 </a>
               </div>
             </div>

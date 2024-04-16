@@ -45,14 +45,14 @@ const Details = () => {
         <div className="mb-10">
           <img
             className="h-1/2 rounded-xl "
-            src="/src/assets/images/h1.jpg"
+            src={estate.image}
             alt=""
           />
         </div>
       </div>
       <div className="flex flex-col md:flex-row  gap-5">
         <div className="w-full md:w-2/3">
-          <OverView></OverView>
+          <OverView ></OverView>
           <Description></Description>
           <Features></Features>
           <Address></Address>

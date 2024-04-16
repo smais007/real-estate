@@ -1,17 +1,3 @@
-/*
-  This example requires some changes to your config:
-
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
 import {
   BuildingOffice2Icon,
   EnvelopeIcon,
@@ -58,13 +44,15 @@ export default function ContactPage() {
               </svg>
             </div>
             <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-              Get in touch
+              Contact Us
             </h2>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Proin volutpat consequat porttitor cras nullam gravida at. Orci
-              molestie a eu arcu. Sed ut tincidunt integer elementum id sem.
-              Arcu sed malesuada et magna.
+              We welcome the opportunity to assist you with your real estate
+              needs. Whether you&apos;re buying, selling, or seeking advice, our
+              team is here to help. Contact us today to schedule a consultation
+              and let us guide you through the process.
             </p>
+
             <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600">
               <div className="flex gap-x-4">
                 <dt className="flex-none">

@@ -1,20 +1,18 @@
+import { useEffect } from "react";
+
 const stats = [
   { label: "Transactions every 24 hours", value: "44 million" },
   { label: "Assets under holding", value: "$119 trillion" },
   { label: "New users annually", value: "46,000" },
 ];
 
-const team = [
-  {
-    name: "Michael Foster",
-    role: "Co-Founder / CTO",
-    imageUrl:
-      "https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80",
-  },
-  // More people...
-];
 
 export default function AboutUs() {
+
+  useEffect(() => {
+    document.title = "Paradise Cove | About Us";
+  }, []);
+
   return (
     <div className="bg-white">
       <main className="isolate">
@@ -69,12 +67,13 @@ export default function AboutUs() {
                     We’re changing the way people connect.
                   </h1>
                   <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">
-                    Cupidatat minim id magna ipsum sint dolor qui. Sunt sit in
-                    quis cupidatat mollit aute velit. Et labore commodo nulla
-                    aliqua proident mollit ullamco exercitation tempor. Sint
-                    aliqua anim nulla sunt mollit id pariatur in voluptate
-                    cillum. Eu voluptate tempor esse minim amet fugiat veniam
-                    occaecat aliqua.
+                    At our agency, we believe in providing personalized
+                    attention to each client. We understand that every real
+                    estate journey is unique, and we tailor our approach to meet
+                    your specific needs. Our experienced team is dedicated to
+                    guiding you through the process with care and expertise,
+                    ensuring a smooth and successful experience from start to
+                    finish.
                   </p>
                 </div>
                 <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
@@ -138,26 +137,25 @@ export default function AboutUs() {
             <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
               <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
                 <p className="text-xl leading-8 text-gray-600">
-                  Aliquet nec orci mattis amet quisque ullamcorper neque, nibh
-                  sem. At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque
-                  id at vitae feugiat egestas ac. Diam nulla orci at in viverra
-                  scelerisque eget. Eleifend egestas fringilla sapien.
+                  We are dedicated to providing exceptional real estate services
+                  tailored to meet the unique needs of each client. Our mission
+                  is to exceed expectations, delivering results that make a
+                  difference in our clients;&apos; lives.
                 </p>
                 <div className="mt-10 max-w-xl text-base leading-7 text-gray-700">
                   <p>
-                    Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget
-                    risus enim. Mattis mauris semper sed amet vitae sed turpis
-                    id. Id dolor praesent donec est. Odio penatibus risus
-                    viverra tellus varius sit neque erat velit. Faucibus commodo
-                    massa rhoncus, volutpat. Dignissim sed eget risus enim.
-                    Mattis mauris semper sed amet vitae sed turpis id.
+                    Our team is committed to providing you with the best real
+                    estate experience possible. We understand that buying or
+                    selling a home is a significant decision, and we are here to
+                    support you every step of the way. With our expertise and
+                    dedication, we strive to make the process smooth and
+                    successful for you.
                   </p>
                   <p className="mt-10">
-                    Et vitae blandit facilisi magna lacus commodo. Vitae sapien
-                    duis odio id et. Id blandit molestie auctor fermentum
-                    dignissim. Lacus diam tincidunt ac cursus in vel. Mauris
-                    varius vulputate et ultrices hac adipiscing egestas. Iaculis
-                    convallis ac tempor et ut. Ac lorem vel integer orci.
+                    Whether you&apos;re looking to find your dream home or sell your
+                    current property, we are here to help. Our goal is to ensure
+                    that you receive top-notch service and achieve your real
+                    estate goals. Contact us today to get started!
                   </p>
                 </div>
               </div>
@@ -188,37 +186,6 @@ export default function AboutUs() {
             alt=""
             className="aspect-[5/2] w-full object-cover xl:rounded-3xl"
           />
-        </div>
-        {/* Team section */}
-        <div className="mx-auto mt-32 max-w-7xl px-6 sm:mt-48 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Our team
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Sit facilis neque ab nulla vel. Cum eos in laudantium. Temporibus
-              eos totam in dolorum. Nemo vel facere repellendus ut eos dolores
-              similique.
-            </p>
-          </div>
-          <ul
-            role="list"
-            className="mx-auto mt-20 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-16 text-center sm:grid-cols-3 md:grid-cols-4 lg:mx-0 lg:max-w-none lg:grid-cols-5 xl:grid-cols-6"
-          >
-            {team.map((person) => (
-              <li key={person.name}>
-                <img
-                  className="mx-auto h-24 w-24 rounded-full"
-                  src={person.imageUrl}
-                  alt=""
-                />
-                <h3 className="mt-6 text-base font-semibold leading-7 tracking-tight text-gray-900">
-                  {person.name}
-                </h3>
-                <p className="text-sm leading-6 text-gray-600">{person.role}</p>
-              </li>
-            ))}
-          </ul>
         </div>
       </main>
     </div>
