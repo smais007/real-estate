@@ -16,7 +16,8 @@ const Details = () => {
   const estate = estates.find((estate) => estate.id === parseInt(id));
 
   return (
-    <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+    //  container mx-auto px-4 sm:px-6 lg:px-8
+    <div className=" container mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div>
         <div className="flex justify-between ">
           <div>
@@ -38,21 +39,19 @@ const Details = () => {
           <div className="flex justify-between">
             <div className="text-right">
               <h1 className="md:text-2xl"> Price {estate.price}</h1>
-              <p className="text-sm md:text-base">${estate.price_per_sqft} / sq ft</p>
+              <p className="text-sm md:text-base">
+                ${estate.price_per_sqft} / sq ft
+              </p>
             </div>
           </div>
         </div>
         <div className="mb-10">
-          <img
-            className="h-1/2 rounded-xl "
-            src={estate.image}
-            alt=""
-          />
+          <img className="h-1/2 rounded-xl " src={estate.image} alt="" />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row  gap-5">
+      <div className=" container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col  md:flex-row  gap-5">
         <div className="w-full md:w-2/3">
-          <OverView ></OverView>
+          <OverView></OverView>
           <Description></Description>
           <Features></Features>
           <Address></Address>

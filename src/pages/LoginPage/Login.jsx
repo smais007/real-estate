@@ -37,7 +37,7 @@ export default function Login() {
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-10  w-auto"
-            src="/public/PC_logo.svg"
+            src="https://i.ibb.co/6Rw3qLp/Discover-Your-Paradise.png"
             alt="Your Company"
           />
 

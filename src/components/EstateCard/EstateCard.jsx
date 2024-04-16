@@ -21,18 +21,18 @@ export default function EstateCard() {
           >
             Discover Popular Properties
           </h2>
-          <div className="flex justify-between">
+          <div className="flex justify-between items-center">
             <div>
               <p
                 data-aos="zoom-out"
                 data-aos-duration="1000"
-                className="pt-4 mb-5"
+                className="pt-4 mb-5 text-sm md:text-base"
               >
                 Escape to the idyllic countryside of Provence in this luxurious
                 villa surrounded by the world
               </p>
             </div>
-            <div className="">
+            <div className="flex sm:flex-row">
               <button
                 onClick={() => handleFilter("rent")}
                 type="button"
@@ -73,16 +73,19 @@ export default function EstateCard() {
                     <h3 className="text-base md:text-lg font-medium text-gray-900">
                       {estate.estate_title}
                     </h3>
-                    <div className="flex gap-4">
-                      <p className="text-sm text-gray-500 bg-gray-100 px-2 rounded-md">
+                    <div className="flex gap-3">
+                      <p className=" text-xs md:text-sm text-gray-500">
                         {estate.location.state
                           ? estate.location.state
                           : estate.location.country}
                       </p>
-                      <p className="text-sm text-gray-500 bg-gray-100 px-2 rounded-md">
+                      <p className="text-xs md:text-sm  text-gray-500">
                         Property ID: {estate.property_id}
                       </p>
-                      <p className="text-sm text-gray-500 bg-gray-100 px-2 rounded-md"> {estate.segment_name}</p>
+                      <p className="text-xs md:text-sm  text-gray-500">
+                        {" "}
+                        {estate.segment_name}
+                      </p>
                     </div>
                     <div>
                       <p className="text-sm leading-tight text-gray-700">

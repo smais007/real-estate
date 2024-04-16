@@ -9,12 +9,12 @@ export default function UpdateProfile() {
   const [phoneNumber, setPhoneNumber] = useState(user.phoneNumber || "");
   const [photoURL, setPhotoURL] = useState(user.photoURL || "");
 
-  console.log(phoneNumber);
-
   const handleUpdateProfile = () => {
     editUserProfile(name, photoURL, phoneNumber).then(() => {
       toast.success("Your profile update successfully");
-      window.location.reload();
+      setName("");
+      setPhoneNumber("");
+      setPhotoURL("");
     });
   };
 
