@@ -2,19 +2,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/bundle";
-import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "./style.css";
-// import { EffectCoverflow, Pagination, Navigation } from "swiper";
 
-import slide_image_1 from "./../../assets/images/h1.jpg";
-import slide_image_2 from "./../../assets/slide_img/img_2.jpg";
-import slide_image_3 from "./../../assets/slide_img/img_3.jpg";
-import slide_image_4 from "./../../assets/slide_img/img_4.jpg";
-import slide_image_5 from "./../../assets/slide_img/img_6.jpg";
-import slide_image_6 from "./../../assets/slide_img/img_6.jpg";
-import slide_image_7 from "./../../assets/slide_img/img_7.jpg";
+import "./style.css";
+
+import slideData from "../../../public/slides.json";
+
 import {
   Autoplay,
   EffectCoverflow,
@@ -47,31 +39,20 @@ function Slider() {
         modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
         className="swiper_container"
       >
-        <SwiperSlide>
-          <img src={slide_image_1} alt="slide_image" />
-          <div className="slide-text">Text for slide 1</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slide_image_2} alt="slide_image" />
-          <div className="slide-text">Text for slide 2</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slide_image_3} alt="slide_image" />
-          <div className="slide-text">Text for slide 3</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slide_image_4} alt="slide_image" />
-          <div className="slide-text">Text for slide 4</div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slide_image_5} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slide_image_6} alt="slide_image" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slide_image_7} alt="slide_image" />
-        </SwiperSlide>
+        {slideData.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <img src={slide.image_url} alt="slide_image" />
+            <div className="slide-text">
+              <div className="">
+                <h1>{slide.title}</h1>
+                <p>{slide.subtitle}</p>
+                <a href={slide.url}>
+                  <button>{slide.button}</button>
+                </a>
+              </div>
+            </div>
+          </SwiperSlide>
+        ))}
 
         <div className="slider-controler">
           <div className="swiper-button-prev slider-arrow">

@@ -1,32 +1,51 @@
 [
     {
       "id": 1,
-      "title": "Sunset on the Beach",
-      "image": "https://i.ibb.co/dJwjGch/7.jpg",
-      "description": "Enjoy the serene beauty of the sun setting over the ocean waves."
+      "title": "Luxurious Villa in Beverly Hills",
+      "subtitle": "Experience the epitome of modern living with breathtaking views and unparalleled amenities.",
+      "url": "https://www.example.com/apartment1",
+      "button": "Discover",
+      "image_url": "https://i.ibb.co/8j33Wj0/Villa-in-Beverly-Hills.jpg"
     },
     {
       "id": 2,
-      "title": "Mountain Peak",
-      "image": "https://i.ibb.co/9WMscnm/8.jpg",
-      "description": "Experience the breathtaking view from the top of the world."
+      "title": "Luxury Penthouse in Manhattan",
+      "subtitle": "This charming home offers a peaceful retreat for your family, blending comfort and convenience seamlessly.",
+      "url": "https://www.example.com/home1",
+      "button": "Discover",
+      "image_url": "https://i.ibb.co/H42hPJs/mostafa-safadel-c-Hj-Axn-Jk-w-Q-unsplash.jpg",
+      "build_year": "2012"
     },
     {
       "id": 3,
-      "title": "City Skyline",
-      "image": "https://i.ibb.co/9nMD982/9.jpg",
-      "description": "Marvel at the glittering lights of the urban landscape against the night sky."
+      "title": "Luxury Villa in Provence",
+      "subtitle": "Indulge in a tranquil escape by the sea, where every sunset paints a masterpiece and serenity reigns supreme.",
+      "url": "https://www.example.com/villa1",
+      "button": "Discover",
+      "image_url": "https://i.ibb.co/M5tXy2z/Penthouse-in-Manhattan.jpg"
     },
     {
       "id": 4,
-      "title": "Majestic Forest",
-      "image": "https://i.ibb.co/tXZDCMZ/10.jpg",
-      "description": "Lose yourself in the tranquility of the ancient trees and lush greenery."
+      "title": "Modern Townhouse in London",
+      "subtitle": "Unlock your creativity in this stylish loft, where industrial design meets contemporary comfort for the perfect urban retreat.",
+      "url": "https://www.example.com/loft1",
+      "button": "Discover",
+      "image_url": "https://i.ibb.co/jMp6QbW/Modern-Townhouse.jpg"
     },
     {
       "id": 5,
-      "title": "Waterfall Wonderland",
-      "image": "https://i.ibb.co/D7C8x81/1.jpg",
-      "description": "Be enchanted by the cascading waters amidst a paradise of flora and fauna."
+      "title": "Mountain Chalet in Swiss Alps",
+      "subtitle": "Step into a world of rustic charm and natural beauty, where simplicity and serenity converge in perfect harmony.",
+      "url": "https://www.example.com/cottage1",
+      "button": "Discover",
+      "image_url": "https://i.ibb.co/vBLPmZX/Mountain-Chalet.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Beachfront House in Hawaii",
+      "subtitle": "Elevate your lifestyle to new heights in this opulent penthouse, boasting unrivaled city views and lavish amenities.",
+      "url": "https://www.example.com/penthouse1",
+      "button": "Discover",
+      "image_url": "https://i.ibb.co/tMYHHcb/Beachfront-House.jpg"
     }
   ]
