@@ -94,9 +94,9 @@ const posts = [
 ];
 
 export default function BlogPage() {
-  useEffect(()=>{
-    document.title="Paradise Cove | Blog"
-  },[])
+  useEffect(() => {
+    document.title = "Paradise Cove | Blog";
+  }, []);
   return (
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -111,6 +111,8 @@ export default function BlogPage() {
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           {posts.map((post) => (
             <article
+              data-aos="zoom-in"
+              data-aos-duration="1000"
               key={post.id}
               className="flex flex-col items-start justify-between"
             >

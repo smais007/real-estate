@@ -57,6 +57,8 @@ export default function EstateCard() {
               )
               .map((estate) => (
                 <div
+                  data-aos="zoom-in"
+                  data-aos-duration="1000"
                   key={estate.id}
                   className="group relative flex flex-col overflow-hidden rounded-lg border border-gray-200 bg-white"
                 >

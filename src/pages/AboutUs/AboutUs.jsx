@@ -6,9 +6,7 @@ const stats = [
   { label: "New users annually", value: "46,000" },
 ];
 
-
 export default function AboutUs() {
-
   useEffect(() => {
     document.title = "Paradise Cove | About Us";
   }, []);
@@ -62,7 +60,10 @@ export default function AboutUs() {
           <div className="overflow-hidden">
             <div className="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
               <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-                <div className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
+                <div
+                  data-aos="fade-down-right"
+                  className="w-full max-w-xl lg:shrink-0 xl:max-w-2xl"
+                >
                   <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
                     We’re changing the way people connect.
                   </h1>
@@ -131,11 +132,17 @@ export default function AboutUs() {
         {/* Content section */}
         <div className="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h2
+              data-aos="zoom-in"
+              className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl"
+            >
               Our mission
             </h2>
             <div className="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
-              <div className="lg:w-full lg:max-w-2xl lg:flex-auto">
+              <div
+                data-aos="zoom-in"
+                className="lg:w-full lg:max-w-2xl lg:flex-auto"
+              >
                 <p className="text-xl leading-8 text-gray-600">
                   We are dedicated to providing exceptional real estate services
                   tailored to meet the unique needs of each client. Our mission
@@ -152,15 +159,15 @@ export default function AboutUs() {
                     successful for you.
                   </p>
                   <p className="mt-10">
-                    Whether you&apos;re looking to find your dream home or sell your
-                    current property, we are here to help. Our goal is to ensure
-                    that you receive top-notch service and achieve your real
-                    estate goals. Contact us today to get started!
+                    Whether you&apos;re looking to find your dream home or sell
+                    your current property, we are here to help. Our goal is to
+                    ensure that you receive top-notch service and achieve your
+                    real estate goals. Contact us today to get started!
                   </p>
                 </div>
               </div>
               <div className="lg:flex lg:flex-auto lg:justify-center">
-                <dl className="w-64 space-y-8 xl:w-80">
+                <dl data-aos="zoom-in-down" className="w-64 space-y-8 xl:w-80">
                   {stats.map((stat) => (
                     <div
                       key={stat.label}

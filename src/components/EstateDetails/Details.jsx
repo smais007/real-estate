@@ -19,8 +19,8 @@ const Details = () => {
     //  container mx-auto px-4 sm:px-6 lg:px-8
     <div className=" container mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div>
-        <div className="flex justify-between ">
-          <div>
+        <div className="flex justify-between px-6 lg:px-8">
+          <div className="">
             <div>
               <h1 className="md:text-3xl font-medium">{estate.estate_title}</h1>
             </div>
@@ -45,7 +45,7 @@ const Details = () => {
             </div>
           </div>
         </div>
-        <div className="mb-10">
+        <div className="mb-10 container mx-auto px-4 sm:px-6 lg:px-8 ">
           <img className="h-1/2 rounded-xl " src={estate.image} alt="" />
         </div>
       </div>
